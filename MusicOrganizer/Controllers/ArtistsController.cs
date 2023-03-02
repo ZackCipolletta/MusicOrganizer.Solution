@@ -33,9 +33,24 @@ namespace MusicOrganizer.Controllers
       Dictionary<string, object> model = new Dictionary<string, object>();
       Artists selectedArtist = Artists.Find(id);
       List<Albums> artistAlbums = selectedArtist.Albums;
-      model.Add("artist", selectedArtist);
+      model.Add("artists", selectedArtist);
       model.Add("albums", artistAlbums);
       return View(model);
     }
+
+        [HttpPost("artists/{artistsId}/albums")]
+    public ActionResult Create(int artistsId, string albumsName)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Artists foundArtist = Artists.Find(artistsId);
+      Albums newAlbums = new Albums(albumsName);
+      foundArtist.AddAlbum(newAlbums);
+      List<Albums> artistAlbums = foundArtist.Albums;
+      model.Add("albums", artistAlbums);
+      model.Add("artists", foundArtist);
+      return View("Show", model);
+    }
   }
+
+
 }
