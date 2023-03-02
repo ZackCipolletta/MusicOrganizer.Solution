@@ -10,10 +10,10 @@
     <ol>
     @foreach (Albums albums in @Model["albums"])
   {
-        <li><a href='/artists/@Model["artists"].Id/albums/@albums.Id'>@albums.AlbumName</a></li>
+        <li>@albums.AlbumName</li>
   }
     </ol>
 
-    <p><a href='/artists/@Model["artists"].Id/albums/new'>Add a new item</a></p>
-    <p><a href='/artists'>Return to category list</a></p>
+    <p><a href='/artists/@Model["artists"].Id/albums/new'>Add a new Album</a></p>
+    <p><a href='/artists'>Return to Artists list</a></p>
     <p><a href='/'>Return to Main Page</a></p>
