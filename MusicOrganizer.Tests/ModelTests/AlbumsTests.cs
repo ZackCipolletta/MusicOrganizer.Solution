@@ -81,5 +81,38 @@ namespace MusicOrganizer.Tests
       Assert.AreEqual(1, result);
     }
 
+    [TestMethod]
+    public void Find_ReturnsCorrectItem_Item()
+    {
+      //Arrange
+      string description01 = "Walk the dog";
+      string description02 = "Wash the dishes";
+      Albums newAlbum1 = new Albums(description01);
+      Albums newAlbum2 = new Albums(description02);
+
+      // Act
+      Albums result = Albums.Find(2);
+
+      // Assert
+      Assert.AreEqual(newAlbum2, result);
+    }
+
+          [TestMethod]
+  public void Find_ReturnsCorrectCategory_Category()
+  {
+    //Arrange
+    string name01 = "Work";
+    string name02 = "School";
+    Artists newArtists1 = new Artists(name01);
+    Artists newArtists2 = new Artists(name02);
+
+    //Act
+    Artists result = Artists.Find(2);
+
+    //Assert
+    Assert.AreEqual(newArtists2, result);
+  }
+
+
   }
 }
