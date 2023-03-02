@@ -20,14 +20,14 @@ namespace MusicOrganizer.Controllers
       return View();
     }
 
-        [HttpPost("/artists")]
+    [HttpPost("/artists")]
     public ActionResult Create(string artistName)
     {
       Artists newArtist = new Artists(artistName);
       return RedirectToAction("Index");
     }
 
-        [HttpGet("/artists/{id}")]
+    [HttpGet("/artists/{id}")]
     public ActionResult Show(int id)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
@@ -38,7 +38,7 @@ namespace MusicOrganizer.Controllers
       return View(model);
     }
 
-        [HttpPost("artists/{artistsId}/albums")]
+    [HttpPost("artists/{artistsId}/albums")]
     public ActionResult Create(int artistsId, string albumsName)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
@@ -50,6 +50,13 @@ namespace MusicOrganizer.Controllers
       model.Add("artists", foundArtist);
       return View("Show", model);
     }
+
+    [HttpGet("/artists/find")]
+    public ActionResult Find()
+    {
+      return View();
+    }
+    
   }
 
 
