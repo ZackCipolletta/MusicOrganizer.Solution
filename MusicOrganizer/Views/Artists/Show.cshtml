@@ -2,18 +2,18 @@
   @{
   Layout = "_Layout";
 }
-    @using MusicOrganizer.Models;
+@using MusicOrganizer.Models;
 
-    @* view is being passed model = Dictionary which is created in the ArtistsController.  The dictionary is made of two things: the artists object and the albums object.  In order to access either object you must use @Model and then [] using quotes ("") naming the object.  Once selected you have access to that selected object and can then use dot notation as shown here *@
-    <h3>Here are all the albums by this @Model["artists"].ArtistName:</h3>
+@* view is being passed model = Dictionary which is created in the ArtistsController.  The dictionary is made of two things: the artists object and the albums object.  In order to access either object you must use @Model and then [] using quotes ("") naming the object.  Once selected you have access to that selected object and can then use dot notation as shown here *@
+<h3>Here are all the albums by this @Model["artists"].ArtistName:</h3>
 
-    <ol>
-    @foreach (Albums albums in @Model["albums"])
-  {
-        <li>@albums.AlbumName</li>
-  }
-    </ol>
+<ol>
+@foreach (Albums albums in @Model["albums"])
+{
+    <li>@albums.AlbumName</li>
+}
+</ol>
 
-    <p><a href='/artists/@Model["artists"].Id/albums/new'>Add a new Album</a></p>
-    <p><a href='/artists'>Return to Artists list</a></p>
-    <p><a href='/'>Return to Main Page</a></p>
+<p><a href='/artists/@Model["artists"].Id/albums/new'>Add a new Album</a></p>
+<p><a href='/artists'>Return to Artists list</a></p>
+<p><a href='/'>Return to Main Page</a></p>
