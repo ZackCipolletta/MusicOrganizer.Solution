@@ -13,7 +13,6 @@ namespace MusicOrganizer.Controllers
       return View(allArtists);
     }
 
-
     [HttpGet("/artists/new")]
     public ActionResult New()
     {
@@ -56,8 +55,13 @@ namespace MusicOrganizer.Controllers
     {
       return View();
     }
-    
-  }
 
+    [HttpPost("artists/search")]
+    public ActionResult Search(string artistName)
+    {
+      int foundId = Artists.Search(artistName).Id;
+      return RedirectToAction("Show", new { id = foundId });
+    }
+  }
 
 }

@@ -37,15 +37,17 @@ namespace MusicOrganizer.Models
       Albums.Add(album);
     }
 
-    // public static void Search(string artistName)
-    // {
-    //   foreach (Artists artists in _instances)
-    //   {
-    //     if (artists.ArtistName.Equals(artistName))
-    //     {
-    //       Find(artists.Id);
-    //     }
-    //   }
-    // }
+    public static Artists Search(string artistName)
+    {
+      int found = 0;
+      foreach (Artists artists in _instances)
+      {
+        if (artists.ArtistName.Equals(artistName))
+        {
+          found = artists.Id;
+        }
+      }
+      return Artists.Find(found);
+    }
   }
 }

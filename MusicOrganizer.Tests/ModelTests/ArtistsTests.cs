@@ -64,8 +64,24 @@ namespace MusicOrganizer.Tests
       List<Albums> result = newArtist.Albums;
 
       CollectionAssert.AreEqual(newArtistList, result);
-
     }
 
+
+    [TestMethod]
+    public void SearchArtists_ReturnASpecificArtistIdInAListGivenAStringName_Int()
+    {
+      //Arrange
+      string artistName01 = "StrongMan";
+      string artistName02 = "Metallica";
+      Artists newArtist1 = new Artists(artistName01);
+      Artists newArtist2 = new Artists(artistName02);
+      List<Artists> newList = new List<Artists> { newArtist1, newArtist2 };
+
+      // Act
+      Artists result = Artists.Search(artistName02);
+
+      // Assert
+      Assert.AreEqual(newList[1].Id, result.Id);
+    }
   }
 }
