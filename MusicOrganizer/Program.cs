@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using MusicOrganizer.Models;
 
 namespace MusicOrganizer
 {
@@ -10,6 +11,8 @@ namespace MusicOrganizer
       WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
       builder.Services.AddControllersWithViews();
+
+      DBConfiguration.ConnectionString = builder.Configuration["ConnectionStrings:DefaultConnection"];
 
       WebApplication app = builder.Build();
 

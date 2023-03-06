@@ -42,7 +42,8 @@ namespace MusicOrganizer.Controllers
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Artists foundArtist = Artists.Find(artistsId);
-      Albums newAlbums = new Albums(albumsName);
+      Albums newAlbums = new Albums(albumsName, artistsId);
+      newAlbums.Save(); 
       foundArtist.AddAlbum(newAlbums);
       List<Albums> artistAlbums = foundArtist.Albums;
       model.Add("albums", artistAlbums);
